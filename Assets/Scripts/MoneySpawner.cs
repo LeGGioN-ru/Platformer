@@ -21,7 +21,7 @@ public class MoneySpawner : MonoBehaviour
         {
             moneys[i] = Instantiate(_moneyTemplate, _moneysPoints[i].transform);
         }
-
+        
         _wallet.Init(moneys);
     }
 

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private int _isWalked;
 
     public void Die()
     {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _isWalked = Animator.StringToHash("IsWalked");
     }
 
     private void Update()
@@ -34,18 +36,19 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
             _spriteRenderer.flipX = true;
-            _animator.SetBool("IsWalked", true);
+            _animator.SetBool(_isWalked, true);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(_speed * Time.deltaTime, 0, 0);
             _spriteRenderer.flipX = false;
-            _animator.SetBool("IsWalked", true);
+            _animator.SetBool(_isWalked, true);
         }
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && _isCanJump)
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false)
         {
-            _animator.SetBool("IsWalked", false);
+            _animator.SetBool(_isWalked, false);
         }
     }
 
