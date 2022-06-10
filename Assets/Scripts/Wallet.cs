@@ -35,6 +35,6 @@ public class Wallet : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Вы собрали {_currentAmountMoneys}/{_amountMoneysMap}");
+        Debug.Log($"Вы собрали {_currentAmountMoneys}/{_amountMoneysMap} монет");
     }
 }

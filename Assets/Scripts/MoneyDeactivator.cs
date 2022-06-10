@@ -12,7 +12,7 @@ public class MoneyDeactivator : MonoBehaviour
         _money = GetComponent<Money>();
     }
 
-    public void Deactivate()
+    public void Execute()
     {
         _money.gameObject.SetActive(false);
     }
